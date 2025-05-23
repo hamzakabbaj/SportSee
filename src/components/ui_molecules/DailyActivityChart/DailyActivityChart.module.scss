@@ -1,0 +1,27 @@
+.dailyActivityChart {
+  width: calc(100% - 24px * 2);
+  height: 50%;
+  background-color: #fbfbfb;
+  padding: 24px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      margin-bottom: 0;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    &__legend {
+      display: flex;
+      gap: 32px;
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #74798c;
+    }
+  }
+}

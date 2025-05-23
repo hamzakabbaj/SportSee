@@ -1,0 +1,32 @@
+.nutritionCard {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 32px;
+  background-color: #fbfbfb;
+  width: 100%;
+  gap: 24px;
+  &__icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    & p {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0;
+    }
+    & span {
+      font-size: 14px;
+      color: #74798c;
+    }
+  }
+}
