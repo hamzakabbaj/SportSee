@@ -6,19 +6,8 @@ import {
   PolarAngleAxis,
 } from "recharts";
 import styles from "./ScoreChart.module.scss";
-import { useUser } from "@/hooks/useUser";
-import { useParams } from "react-router-dom";
 
-export default function ScoreChart() {
-  const { id } = useParams();
-  const { user, isLoading } = useUser(id);
-
-  if (isLoading || !user?.data) {
-    return <div className={styles.scoreChart}>Loading...</div>;
-  }
-
-  // Use either 'score' or 'todayScore' from the API
-  const score = user.data.score ?? user.data.todayScore ?? 0;
+export default function ScoreChart({ score }) {
   const percent = Math.round((score || 0) * 100);
   const data = [{ name: "score", value: percent, fill: "#FF0000" }];
 

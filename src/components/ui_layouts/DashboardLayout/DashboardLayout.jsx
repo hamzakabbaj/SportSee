@@ -38,9 +38,12 @@ function DashboardLayout() {
     error: errorPerformance,
   } = useUserPerformance(id);
 
-  console.log(user);
-
-  if (isLoading) {
+  if (
+    isLoading ||
+    isLoadingActivity ||
+    isLoadingAverageSessions ||
+    isLoadingPerformance
+  ) {
     return <div>Loading...</div>;
   }
 
@@ -61,8 +64,8 @@ function DashboardLayout() {
           <DailyActivityRechartChart data={activity.data.sessions} />
           <div className={styles.dashboardLayout__content__left__other}>
             <AverageSessionRechartChart data={averageSessions.data.sessions} />
-            <PerformanceRadarChart />
-            <ScoreChart />
+            <PerformanceRadarChart data={performance.data.data} />
+            <ScoreChart score={user.data.todayScore || user.data.score} />
           </div>
         </div>
         <div className={styles.dashboardLayout__content__right}>
