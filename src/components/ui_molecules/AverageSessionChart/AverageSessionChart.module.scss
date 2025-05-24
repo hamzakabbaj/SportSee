@@ -2,4 +2,10 @@
   width: 100%;
   height: 100%;
   background-color: #fbfbfb;
+
+  &__title {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 24px;
+  }
 }

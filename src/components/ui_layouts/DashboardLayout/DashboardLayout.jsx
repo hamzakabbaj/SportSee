@@ -14,8 +14,8 @@ import {
   faDrumstickBite,
   faBurger,
 } from "@fortawesome/free-solid-svg-icons";
-import DailyActivityChart from "@/components/ui_molecules/DailyActivityChart/DailyActivityChart";
-import AverageSessionChart from "@/components/ui_molecules/AverageSessionChart/AverageSessionChart";
+import DailyActivityRechartChart from "@/components/ui_molecules/DailyActivityChart/DailyActivityChart";
+import AverageSessionRechartChart from "@/components/ui_molecules/AverageSessionChart/AverageSessionChart";
 import ScoreChart from "@/components/ui_molecules/ScoreChart/ScoreChart";
 import PerformanceRadarChart from "@/components/ui_molecules/PerformanceRadarChart/PerformanceRadarChart";
 function DashboardLayout() {
@@ -58,9 +58,9 @@ function DashboardLayout() {
 
       <div className={styles.dashboardLayout__content}>
         <div className={styles.dashboardLayout__content__left}>
-          <DailyActivityChart data={activity.data.sessions} />
+          <DailyActivityRechartChart data={activity.data.sessions} />
           <div className={styles.dashboardLayout__content__left__other}>
-            <AverageSessionChart data={averageSessions.data.sessions} />
+            <AverageSessionRechartChart data={averageSessions.data.sessions} />
             <PerformanceRadarChart />
             <ScoreChart />
           </div>

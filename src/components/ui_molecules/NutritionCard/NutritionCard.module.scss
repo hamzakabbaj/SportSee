@@ -4,7 +4,7 @@
   justify-content: flex-start;
   padding: 32px;
   background-color: #fbfbfb;
-  width: 100%;
+  width: calc(100% - 64px);
   gap: 24px;
   &__icon {
     width: 60px;
