@@ -3,7 +3,7 @@ import {
   getUserActivity,
   getUserAverageSessions,
   getUserPerformance,
-} from "@/api/UserAPI";
+} from "@/api/userAPI";
 import { useState, useEffect } from "react";
 
 export const useUser = (id) => {
