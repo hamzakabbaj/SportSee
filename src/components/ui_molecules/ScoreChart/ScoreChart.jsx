@@ -8,8 +8,7 @@ import {
 import styles from "./ScoreChart.module.scss";
 
 export default function ScoreChart({ score }) {
-  const percent = Math.round((score || 0) * 100);
-  const data = [{ name: "score", value: percent, fill: "#FF0000" }];
+  const data = [{ name: "score", value: score, fill: "#FF0000" }];
 
   return (
     <div
@@ -59,7 +58,7 @@ export default function ScoreChart({ score }) {
         }}
       >
         <div style={{ fontSize: 28, fontWeight: 700, color: "#282D30" }}>
-          {percent}%
+          {score}%
         </div>
         <div
           style={{

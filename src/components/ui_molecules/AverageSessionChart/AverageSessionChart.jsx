@@ -10,9 +10,6 @@ import {
 } from "recharts";
 import styles from "./AverageSessionChart.module.scss";
 
-/* map 1‑7 ➜ French weekday initials */
-const WEEKDAYS = ["L", "M", "M", "J", "V", "S", "D"];
-
 function CustomTooltip({ active, payload }) {
   if (active && payload && payload.length) {
     return (
@@ -49,9 +46,6 @@ function CustomCursor({ points, width, height }) {
 }
 
 export default function AverageSessionChart({ data }) {
-  // Add weekday label to each data point
-  const chartData = data.map((d) => ({ ...d, label: WEEKDAYS[d.day - 1] }));
-
   return (
     <div
       className={styles.averageSessionChart}
@@ -82,7 +76,7 @@ export default function AverageSessionChart({ data }) {
       </div>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          data={chartData}
+          data={data}
           margin={{ top: 60, right: 20, left: 20, bottom: 30 }}
         >
           <XAxis

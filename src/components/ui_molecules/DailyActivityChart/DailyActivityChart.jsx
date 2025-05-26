@@ -46,7 +46,6 @@ const LegendDot = ({ color, label }) => (
 );
 
 export default function DailyActivityRechartChart({ data }) {
-  const chartData = data.map((d, i) => ({ ...d, idx: i + 1 }));
   return (
     <div className={styles.dailyActivityChart}>
       <div className={styles.dailyActivityChart__header}>
@@ -60,7 +59,7 @@ export default function DailyActivityRechartChart({ data }) {
       </div>
       <ResponsiveContainer width="100%" height={250}>
         <BarChart
-          data={chartData}
+          data={data}
           margin={{ top: 40, right: 30, left: 30, bottom: 30 }}
           barGap={8}
         >
@@ -70,7 +69,7 @@ export default function DailyActivityRechartChart({ data }) {
             stroke="#DEDEDE"
           />
           <XAxis
-            dataKey="idx"
+            dataKey="weekDay"
             tick={{ fill: "#9B9EAC", fontSize: 14 }}
             tickLine={false}
             axisLine={false}

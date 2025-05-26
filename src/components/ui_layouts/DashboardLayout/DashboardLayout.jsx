@@ -32,6 +32,7 @@ function DashboardLayout() {
     isLoading: isLoadingAverageSessions,
     error: errorAverageSessions,
   } = useUserAverageSessions(id);
+
   const {
     performance,
     isLoading: isLoadingPerformance,
@@ -53,7 +54,7 @@ function DashboardLayout() {
         <h1>
           Bonjour
           <span className={styles.dashboardLayout__header__name}>
-            {` ${user.data.userInfos.firstName}`}
+            {` ${user.userInfos.firstName}`}
           </span>
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
@@ -61,38 +62,38 @@ function DashboardLayout() {
 
       <div className={styles.dashboardLayout__content}>
         <div className={styles.dashboardLayout__content__left}>
-          <DailyActivityRechartChart data={activity.data.sessions} />
+          <DailyActivityRechartChart data={activity.sessions} />
           <div className={styles.dashboardLayout__content__left__other}>
-            <AverageSessionRechartChart data={averageSessions.data.sessions} />
-            <PerformanceRadarChart data={performance.data.data} />
-            <ScoreChart score={user.data.todayScore || user.data.score} />
+            <AverageSessionRechartChart data={averageSessions.sessions} />
+            <PerformanceRadarChart data={performance.data} />
+            <ScoreChart score={user.todayScore || user.score} />
           </div>
         </div>
         <div className={styles.dashboardLayout__content__right}>
           <NutritionCard
             icon={<FontAwesomeIcon icon={faFire} />}
-            value={user.data.keyData.calorieCount.toLocaleString("en-US")}
+            value={user.keyData.calorieCount.toLocaleString("en-US")}
             unit="kCal"
             label="Calories"
             color="#FF0000"
           />
           <NutritionCard
             icon={<FontAwesomeIcon icon={faAppleWhole} />}
-            value={user.data.keyData.carbohydrateCount}
+            value={user.keyData.carbohydrateCount}
             unit="g"
             label="Glucides"
             color="#4AB8FF"
           />
           <NutritionCard
             icon={<FontAwesomeIcon icon={faDrumstickBite} />}
-            value={user.data.keyData.proteinCount}
+            value={user.keyData.proteinCount}
             unit="g"
             label="Proteines"
             color="#FDCC0C"
           />
           <NutritionCard
             icon={<FontAwesomeIcon icon={faBurger} />}
-            value={user.data.keyData.lipidCount}
+            value={user.keyData.lipidCount}
             unit="g"
             label="Lipides"
             color="#FD5181"

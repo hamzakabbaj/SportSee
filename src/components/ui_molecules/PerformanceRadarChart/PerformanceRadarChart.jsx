@@ -7,8 +7,6 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import styles from "./PerformanceRadarChart.module.scss";
-import { useUserPerformance } from "@/hooks/useUser";
-import { useParams } from "react-router-dom";
 
 const KIND_LABELS = {
   1: "Intensité",
@@ -21,10 +19,12 @@ const KIND_LABELS = {
 
 export default function PerformanceRadarChart({ data }) {
   // Prepare data for the radar chart
-  const chartData = data.map((item) => ({
-    value: item.value,
-    kind: KIND_LABELS[item.kind],
-  }));
+  // const chartData = data.map((item) => ({
+  //   value: item.value,
+  //   kind: KIND_LABELS[item.kind],
+  // }));
+
+  console.log("PerformanceRadarChart data", data);
 
   return (
     <div
@@ -37,7 +37,7 @@ export default function PerformanceRadarChart({ data }) {
       }}
     >
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart outerRadius="70%" data={chartData}>
+        <RadarChart outerRadius="70%" data={data}>
           <PolarGrid
             gridType="polygon"
             stroke="#fff"
