@@ -39,6 +39,18 @@ function DashboardLayout() {
     error: errorPerformance,
   } = useUserPerformance(id);
 
+  if (error || errorActivity || errorAverageSessions || errorPerformance) {
+    return (
+      <div className={styles.dashboardLayout__error}>
+        <h1>Erreur, impossible de charger les données de l'utilisateur {id}</h1>
+        <p>
+          Veuillez vérifier si l'utilisateur existe et si les données sont
+          disponibles.
+        </p>
+      </div>
+    );
+  }
+
   if (
     isLoading ||
     isLoadingActivity ||
